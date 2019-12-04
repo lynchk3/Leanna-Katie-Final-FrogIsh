@@ -1,6 +1,6 @@
 var radius = 40;
 var x = 110;
-var speed = 1;
+var speed = 2;
 var direction = 1;
 var obstacle = [];
 var characterX = 5;
