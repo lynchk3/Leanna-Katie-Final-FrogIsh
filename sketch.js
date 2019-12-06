@@ -1,10 +1,11 @@
 var radius = 40;
-var x = 110;
+var a = 200;
+var b = 200;
 var speed = 2;
 var direction = 1;
 var obstacle = [];
 var characterX = 5;
-var characterY= 5;
+var characterY = 5;
 
 function setup () {
   createCanvas(400, 400);
@@ -12,6 +13,7 @@ function setup () {
 
 function draw () {
   background(0);
+  fill('red');
   ellipse(characterX, characterY, 30, 30);
 
   if (keyIsPressed && key === 'ArrowLeft') {
@@ -27,41 +29,23 @@ function draw () {
     characterY += 2;
   }
 
-  // x += speed * direction;
-  // rect(x, 50, 100, 20);
-  // rect(x, 140, 100, 20);
-  // rect(x, 230, 100, 20);
-  // rect(x, 320, 100, 20);
+  fill('green');
+  a += speed * direction;
+  rect(a, 50, 100, 20);
+  rect(a + 300, 50, 100, 20);
+  rect(a + 100, 180, 100, 20);
+  rect(a + 300, 180, 100, 20);
+  rect(a + 350, 300, 100, 20);
 
-  firstX += speedA * direction;
-  if ((firstX > 300) || (firstX < 0)) {
-    direction = -direction;
-  }
-  if (direction === 1) {
-    fill('blue');
-    rect(firstX, 50, 100, 50);
-    rect(firstX, 250, 100, 50);
-  } else {
-    fill('green');
-    rect(firstX, 50, 100, 50);
-    rect(firstX, 250, 100, 50);
+  if (a == 400) {
+    a = -a;
   }
 
-  secondX += speedB * direction2;
-  if ((secondX > width - 100) || secondX < 0) {
-    direction2 = -direction2;
-  }
-  if (direction2 === 1) {
-    fill('red');
-    rect(secondX, 175, 90, 20);
-    rect(secondX, 200, 90, 20);
-  } else {
-    fill('yellow');
-    rect(secondX, 175, 90, 20);
-    rect(secondX, 175, 90, 20);
-  }
+  b += speed * -direction;
+  rect(b, 230, 100, 20);
+  rect(b + 100, 120, 100, 20);
 
-  if (x == 400) {
-    x = -100;
+  if (b == -100) {
+    b = 400;
   }
 }
