@@ -14,7 +14,7 @@ function setup () {
 function draw () {
   background(0);
   fill('red');
-  ellipse(characterX, characterY, 30, 30);
+  ellipse(200 + characterX, 20 + characterY, 30, 30);
 
   if (keyIsPressed && key === 'ArrowLeft') {
     characterX -= 2;
