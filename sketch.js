@@ -1,3 +1,4 @@
+
 var radius = 40;
 var a = 200;
 var b = 200;
@@ -7,14 +8,35 @@ var obstacle = [];
 var characterX = 5;
 var characterY = 5;
 
+var firstX = 110;
+var secondX = 75;
+var speedA = 1;
+var speedB = 4;
+var direction = 1;
+var direction2 = 1;
+
+var win = false;
+
+
 function setup () {
   createCanvas(400, 400);
 }
 
+function didYouWin () {
+  if (characterX >= 300 && characterX <= 400 && characterY >= 300 && characterY <= 400) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function draw () {
+
   background(0);
   fill('red');
-  ellipse(200 + characterX, 20 + characterY, 30, 30);
+
+  // Move the Character
+  ellipse(characterX, characterY, 30, 30); // This is our stand-in until we figure out sprites
 
   if (keyIsPressed && key === 'ArrowLeft') {
     characterX -= 2;
@@ -47,5 +69,13 @@ function draw () {
 
   if (b == -100) {
     b = 400;
+
+  // Winning the Game
+  win = didYouWin();
+  if (win) {
+    noLoop();
+    fill(90, 50, 40);
+    textSize(30);
+    text('You Made It!', 100, 400);
   }
 }
