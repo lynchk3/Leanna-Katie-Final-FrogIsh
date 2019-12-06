@@ -1,3 +1,13 @@
+
+var radius = 40;
+var a = 200;
+var b = 200;
+var speed = 2;
+var direction = 1;
+var obstacle = [];
+var characterX = 5;
+var characterY = 5;
+
 var firstX = 110;
 var secondX = 75;
 var speedA = 1;
@@ -5,10 +15,8 @@ var speedB = 4;
 var direction = 1;
 var direction2 = 1;
 
-var characterX = 5;
-var characterY = 5;
-
 var win = false;
+
 
 function setup () {
   createCanvas(400, 400);
@@ -23,7 +31,10 @@ function didYouWin () {
 }
 
 function draw () {
-  background(200);
+
+  background(0);
+  fill('red');
+
   // Move the Character
   ellipse(characterX, characterY, 30, 30); // This is our stand-in until we figure out sprites
 
@@ -40,34 +51,24 @@ function draw () {
     characterY += 2;
   }
 
-  // Obstacles
-  firstX += speedA * direction;
-  if ((firstX > 300) || (firstX < 0)) {
-    direction = -direction;
-  }
-  if (direction === 1) {
-    fill('blue');
-    rect(firstX, 50, 100, 50);
-    rect(firstX, 250, 100, 50);
-  } else {
-    fill('green');
-    rect(firstX, 50, 100, 50);
-    rect(firstX, 250, 100, 50);
+  fill('green');
+  a += speed * direction;
+  rect(a, 50, 100, 20);
+  rect(a + 300, 50, 100, 20);
+  rect(a + 100, 180, 100, 20);
+  rect(a + 300, 180, 100, 20);
+  rect(a + 350, 300, 100, 20);
+
+  if (a == 400) {
+    a = -a;
   }
 
-  secondX += speedB * direction2;
-  if ((secondX > width - 100) || secondX < 0) {
-    direction2 = -direction2;
-  }
-  if (direction2 === 1) {
-    fill('red');
-    rect(secondX, 175, 90, 20);
-    rect(secondX, 200, 90, 20);
-  } else {
-    fill('yellow');
-    rect(secondX, 175, 90, 20);
-    rect(secondX, 175, 90, 20);
-  }
+  b += speed * -direction;
+  rect(b, 230, 100, 20);
+  rect(b + 100, 120, 100, 20);
+
+  if (b == -100) {
+    b = 400;
 
   // Winning the Game
   win = didYouWin();
