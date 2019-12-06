@@ -69,6 +69,7 @@ function draw () {
 
   if (b == -100) {
     b = 400;
+  }
 
   // Winning the Game
   win = didYouWin();
