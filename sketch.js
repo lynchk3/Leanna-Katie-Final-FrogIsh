@@ -10,13 +10,6 @@ var characterX = 5;
 var characterY = 5;
 var numberOfObstacles = 7;
 
-var firstX = 110;
-var secondX = 75;
-var speedA = 1;
-var speedB = 4;
-var direction = 1;
-var direction2 = 1;
-
 var win = false;
 
 // true means collision, otherwise false
@@ -52,7 +45,7 @@ function setup () {
 }
 
 function didYouWin () {
-  if (characterX >= 300 && characterX <= 400 && characterY >= 300 && characterY <= 400) {
+  if (characterX >= 300 && characterX <= 375 && characterY >= 300 && characterY <= 375) {
     return true;
   } else {
     return false;
@@ -63,6 +56,7 @@ function draw () {
 
   background(0);
   fill('red');
+  rect(300, 350, 70, 70);
 
   // Move the Character
   ellipse(characterX, characterY, radius, radius); // This is our stand-in until we figure out sprites
@@ -104,7 +98,6 @@ function draw () {
   win = didYouWin();
   if (win) {
     noLoop();
-    fill(90, 50, 40);
     textSize(30);
     text('You Made It!', 100, 400);
   }
@@ -112,5 +105,8 @@ function draw () {
   if (checkCollisions()) {
     textSize(30);
     text('whoops!', 50, 50);
+    characterX = 5;
+    characterY = 5;
+    ellipse(characterX, characterY, radius, radius);
   }
 }
