@@ -45,7 +45,7 @@ function setup () {
 }
 
 function didYouWin () {
-  if (characterX >= 300 && characterX <= 375 && characterY >= 300 && characterY <= 375) {
+  if (characterX >= 330 && characterX <= 400 && characterY >= 330 && characterY <= 400) {
     return true;
   } else {
     return false;
@@ -56,7 +56,7 @@ function draw () {
 
   background(0);
   fill('red');
-  rect(300, 350, 70, 70);
+  rect(310, 340, 60, 60);
 
   // Move the Character
   ellipse(characterX, characterY, radius, radius); // This is our stand-in until we figure out sprites
