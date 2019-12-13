@@ -19,4 +19,5 @@ Initially we took this project head on. We both just went for it and tried to co
 
 **Credits**
 Katie: wrote the code for the moving ball and the win screen
+
 Leanna: wrote the code for the obstacles 
