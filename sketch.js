@@ -59,7 +59,7 @@ function draw () {
   rect(310, 340, 60, 60);
 
   // Move the Character
-  ellipse(characterX, characterY, radius, radius); // This is our stand-in until we figure out sprites
+  ellipse(characterX, characterY, radius, radius);
 
   if (keyIsPressed && key === 'ArrowLeft') {
     characterX -= 2;
